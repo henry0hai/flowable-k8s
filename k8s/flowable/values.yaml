@@ -1,25 +1,25 @@
 host:
   # Public / external hostname (f.e. LB)
-  external: localhost
+  external: bv-flowable.ttekglobal.com
 # Global database name, user and password
 database:
   name: flowable
   username: flowable
   password: flowable
-  # specify to overwrite dynamic template values 
+  # specify to overwrite dynamic template values
   # datasourceDriverClassName:
   # datasourceUrl:
 cloudSql:
   enabled: false
   # Google Cloud SQL instance connection name
-  # instanceConnectionName: 
+  # instanceConnectionName:
   # Google credentials file name stored as secret in the cluster
   credentials: cloudsql-credentials.json
 
 ingress:
   enabled: true
   sslRedirect: false
-  useHost: false
+  useHost: true
   # To enable LetsEncrypt signed certificates rather than self-signed ones
   # you must deploy a ClusterIssuer object and specify the privateKeySecretRef's
   # name here
@@ -38,19 +38,19 @@ idm:
     pullPolicy: Always
   resources:
     requests:
-      cpu: "100m"
-      memory: "512Mi"
+      cpu: '100m'
+      memory: '512Mi'
     limits:
-      cpu: "1"
-      memory: "512Mi"
-  javaOpts: "-Xms512m -Xmx512m"
+      cpu: '1'
+      memory: '512Mi'
+  javaOpts: '-Xms512m -Xmx512m'
   admin:
     username: admin
     password: test
 
 # Enable either Flowable Task or Flowable REST
 task:
-  enabled: true
+  enabled: false
   replicas: 1
   service:
     name: flowable-task
@@ -62,19 +62,19 @@ task:
     pullPolicy: Always
   resources:
     requests:
-      cpu: "100m"
-      memory: "1Gi"
+      cpu: '100m'
+      memory: '1Gi'
     limits:
-      cpu: "1"
-      memory: "1Gi"
-  javaOpts: "-Xmx1g -Xms1g"
+      cpu: '1'
+      memory: '1Gi'
+  javaOpts: '-Xmx1g -Xms1g'
   admin:
     username: admin
     password: test
 
 # Enable either Flowable Task or Flowable REST
 rest:
-  enabled: false
+  enabled: true
   replicas: 1
   service:
     name: flowable-rest
@@ -86,12 +86,12 @@ rest:
     pullPolicy: Always
   resources:
     requests:
-      cpu: "100m"
-      memory: "1Gi"
+      cpu: '100m'
+      memory: '1Gi'
     limits:
-      cpu: "1"
-      memory: "1Gi"
-  javaOpts: "-Xmx1g -Xms1g"
+      cpu: '1'
+      memory: '1Gi'
+  javaOpts: '-Xmx1g -Xms1g'
   admin:
     username: rest-admin
     password: test
@@ -109,12 +109,12 @@ modeler:
     pullPolicy: Always
   resources:
     requests:
-      cpu: "100m"
-      memory: "512Mi"
+      cpu: '100m'
+      memory: '512Mi'
     limits:
-      cpu: "1"
-      memory: "512Mi"
-  javaOpts: "-Xms512m -Xmx512m"
+      cpu: '1'
+      memory: '512Mi'
+  javaOpts: '-Xms512m -Xmx512m'
   admin:
     username: admin
     password: test
@@ -132,12 +132,12 @@ admin:
     pullPolicy: Always
   resources:
     requests:
-      cpu: "100m"
-      memory: "512Mi"
+      cpu: '100m'
+      memory: '512Mi'
     limits:
-      cpu: "1"
-      memory: "512Mi"
-  javaOpts: "-Xms512m -Xmx512m"
+      cpu: '1'
+      memory: '512Mi'
+  javaOpts: '-Xms512m -Xmx512m'
   admin:
     username: admin
     password: test
@@ -159,13 +159,13 @@ postgres:
     name: flowable-postgres
   image: postgres:9.6
   storage:
-    storageClassName: "standard"
-#    storageClassName: "ssd"
-    size: 1Gi
+    # storageClassName: "standard"
+    #    storageClassName: "ssd"
+    size: 20Gi
   resources:
     requests:
-      cpu: "100m"
-      memory: "1Gi"
+      cpu: '100m'
+      memory: '1Gi'
     limits:
-      cpu: "1000m"
-      memory: "1Gi"
+      cpu: '1000m'
+      memory: '1Gi'
