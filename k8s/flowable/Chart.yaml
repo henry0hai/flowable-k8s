@@ -6,8 +6,8 @@ version: 6.5.0
 home: https://flowable.org
 icon: https://flowable.org/docs/img/logo.png
 
-dependencies:
-  - name: nginx-ingress
-    version: 1.3.1
-    repository: https://kubernetes-charts.storage.googleapis.com
-    condition: nginx-ingress.enabled
+# dependencies:
+#   - name: nginx-ingress
+#     version: 1.3.1
+#     repository: https://kubernetes-charts.storage.googleapis.com
+#     condition: nginx-ingress.enabled
